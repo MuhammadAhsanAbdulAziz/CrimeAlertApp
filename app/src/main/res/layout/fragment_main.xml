@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".view.civillian.MainFragment">
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/Widget.Material3.Button"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Log in"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/haha"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="You are logged in"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</LinearLayout>

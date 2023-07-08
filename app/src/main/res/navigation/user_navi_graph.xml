@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_navi_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.crimealert.view.civillian.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.crimealert.view.civillian.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/complaintFragment"
+        android:name="com.example.crimealert.view.civillian.ComplaintFragment"
+        android:label="fragment_complaint"
+        tools:layout="@layout/fragment_complaint" />
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.example.crimealert.view.civillian.FeedbackFragment"
+        android:label="fragment_feedback"
+        tools:layout="@layout/fragment_feedback" />
+    <fragment
+        android:id="@+id/emergencyComplaintFragment"
+        android:name="com.example.crimealert.view.civillian.EmergencyComplaintFragment"
+        android:label="fragment_emergency_complaint"
+        tools:layout="@layout/fragment_emergency_complaint" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.crimealert.view.civillian.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_feedbackFragment"
+            app:destination="@id/feedbackFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_complaintFragment"
+            app:destination="@id/complaintFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_emergencyComplaintFragment"
+            app:destination="@id/emergencyComplaintFragment" />
+    </fragment>
+</navigation>
