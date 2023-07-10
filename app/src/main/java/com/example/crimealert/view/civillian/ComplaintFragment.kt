@@ -15,7 +15,7 @@ class ComplaintFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentComplaintBinding.inflate(inflater,container,false)
         return binding.root
     }

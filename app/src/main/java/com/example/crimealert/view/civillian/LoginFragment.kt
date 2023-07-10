@@ -33,7 +33,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -62,7 +62,7 @@ class LoginFragment : Fragment() {
     private fun getUserRequest(): UserRequest {
         val emailAddress = binding.txtEmail.text.toString()
         val password = binding.txtPassword.text.toString()
-        return UserRequest("",emailAddress,password,)
+        return UserRequest("","","","",emailAddress,password,0)
     }
 
     private fun validateUserInfo(): Pair<Boolean, String> {
@@ -76,7 +76,7 @@ class LoginFragment : Fragment() {
             when (it) {
                 is NetworkResult.Success -> {
                     utilManager.saveUser(it.data!!)
-                    utilManager.saveToken(it.data!!.token)
+                    utilManager.saveToken(it.data.token)
                     findNavController().popBackStack()
                 }
 
@@ -90,6 +90,7 @@ class LoginFragment : Fragment() {
             }
         })
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

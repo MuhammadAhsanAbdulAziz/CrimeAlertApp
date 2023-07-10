@@ -1,7 +1,11 @@
 package com.example.crimealert.models
 
 data class UserRequest(
-    val Username: String,
+    val FName: String,
+    val LName: String,
+    val Username : String,
+    val CNIC : String,
     val Email: String,
-    val Password: String
+    val Password: String,
+    val RoleId: Int
 )

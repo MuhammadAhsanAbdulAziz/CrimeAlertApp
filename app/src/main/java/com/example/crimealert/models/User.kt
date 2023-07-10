@@ -5,6 +5,7 @@ data class User(
     val Email: String,
     val FName: String,
     val LName: String,
+    val CNIC : String,
     val Password: String,
     val RoleId: Int,
     val UserId: Int

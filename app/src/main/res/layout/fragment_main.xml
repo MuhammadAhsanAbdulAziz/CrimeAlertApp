@@ -7,6 +7,18 @@
     android:padding="10dp"
     tools:context=".view.civillian.MainFragment">
 
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/haha"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="You are logged in"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
     <Button
         android:id="@+id/btn_login"
         style="@style/Widget.Material3.Button"
@@ -18,17 +30,67 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="16sp" />
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/haha"
+    <Button
+        android:id="@+id/btn_emergencycomplaint"
+        style="@style/Widget.Material3.Button"
         android:backgroundTint="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="You are logged in"
+        android:text="Emergency Complaint"
         android:textAllCaps="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp" />
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btn_complaint"
+        style="@style/Widget.Material3.Button"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Complaints"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btn_feedback"
+        style="@style/Widget.Material3.Button"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Feedback"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btn_profile"
+        style="@style/Widget.Material3.Button"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="My Profile"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btn_logout"
+        style="@style/Widget.Material3.Button"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Log out"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
 
 </LinearLayout>
