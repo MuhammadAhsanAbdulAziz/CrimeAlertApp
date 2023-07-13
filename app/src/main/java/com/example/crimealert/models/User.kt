@@ -8,5 +8,5 @@ data class User(
     val CNIC : String,
     val Password: String,
     val RoleId: Int,
-    val UserId: Int
+    val UserId: String
 )

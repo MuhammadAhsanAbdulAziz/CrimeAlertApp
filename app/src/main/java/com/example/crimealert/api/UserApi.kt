@@ -1,18 +1,22 @@
 package com.example.crimealert.api
 
+import com.example.crimealert.models.User
 import com.example.crimealert.models.UserRequest
-import com.example.crimealert.models.UserResponse
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface UserApi {
+    @GET("/users")
+    suspend fun getUser() : Response<User>
 
-    @POST("/users/signup")
-    suspend fun signup(@Body userRequest: UserRequest) : Response<UserResponse>
+    @PUT("/users/{userId}")
+    suspend fun updateUser(@Path("userId") userId:String, @Body userRequest: UserRequest) : Response<User>
 
-    @POST("/users/signin")
-    suspend fun signin(@Body userRequest: UserRequest) : Response<UserResponse>
+    @DELETE("/users/{userId}")
+    suspend fun deleteUser(@Path("userId") userId:String) : Response<User>
 
 }
-

@@ -8,6 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="red">#A50000</color>
+    <color name="green">#0F9700</color>
     <color name="light_gray">#a2a2a2</color>
     <color name="highlight_text_color">#2196F3</color>
+    <color name="mycolor">#212529</color>
+    <color name="mycolor2">#e01e26</color>
+    <color name="mycolor3">#2845a0</color>
+    <color name="mtrl_textinput_default_box_stroke_color">#fff</color>
 </resources>

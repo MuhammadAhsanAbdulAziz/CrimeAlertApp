@@ -42,7 +42,7 @@ class FeedbackRepository @Inject constructor(private val feedbackApi: FeedbackAp
     suspend fun deletefeedback(feedbackId: String){
         _statusLiveData.postValue(NetworkResult.Loading())
         val response = feedbackApi.deleteFeedback(feedbackId)
-        handleResponse(response,"feedback Deleted")
+        _statusLiveData.postValue(NetworkResult.Success("feedback Deleted"))
     }
 
     suspend fun updatefeedback(feedbackId : String, feedbackRequest: FeedbackRequest){

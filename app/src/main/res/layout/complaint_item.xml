@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="detail"
+            type="com.example.crimealert.models.ComplaintResponse" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_weight="10"
+            android:text="@{detail.compTitle}"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/status"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                app:cardCornerRadius="40dp"
+                android:backgroundTint="@{detail.compStatus == 1 ? @color/red : @color/green}"
+                android:layout_height="match_parent">
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <TextView
+            android:text="@{detail.compDescription}"
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Description"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+    </LinearLayout>
+</layout>

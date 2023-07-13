@@ -1,96 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".view.civillian.MainFragment">
+    android:background="@drawable/backgroundimg"
+    tools:context="view.civillian.MainFragment">
 
-    <TextView
-        android:visibility="invisible"
-        android:id="@+id/haha"
-        android:backgroundTint="@color/black"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="You are logged in"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:orientation="vertical"
+        android:paddingTop="50dp">
 
-    <Button
-        android:id="@+id/btn_login"
-        style="@style/Widget.Material3.Button"
-        android:backgroundTint="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Log in"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-    <Button
-        android:id="@+id/btn_emergencycomplaint"
-        style="@style/Widget.Material3.Button"
-        android:backgroundTint="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Emergency Complaint"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/btn_complaint"
-        style="@style/Widget.Material3.Button"
-        android:backgroundTint="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Complaints"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="@string/welcome_to_karachi_police"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="italic" />
 
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/btn_feedback"
-        style="@style/Widget.Material3.Button"
-        android:backgroundTint="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Feedback"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/btn_profile"
-        style="@style/Widget.Material3.Button"
-        android:backgroundTint="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="My Profile"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/btn_logout"
-        style="@style/Widget.Material3.Button"
-        android:backgroundTint="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Log out"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/where_your_safety_comes_first"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
 
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

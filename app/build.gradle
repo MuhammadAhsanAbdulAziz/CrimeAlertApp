@@ -67,6 +67,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 }
 kapt {

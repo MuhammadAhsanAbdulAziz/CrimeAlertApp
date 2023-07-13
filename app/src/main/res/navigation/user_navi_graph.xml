@@ -30,11 +30,6 @@
         android:label="fragment_feedback"
         tools:layout="@layout/fragment_feedback" />
     <fragment
-        android:id="@+id/emergencyComplaintFragment"
-        android:name="com.example.crimealert.view.civillian.EmergencyComplaintFragment"
-        android:label="fragment_emergency_complaint"
-        tools:layout="@layout/fragment_emergency_complaint" />
-    <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.crimealert.view.civillian.MainFragment"
         android:label="fragment_main"
@@ -46,18 +41,94 @@
             android:id="@+id/action_mainFragment_to_feedbackFragment"
             app:destination="@id/feedbackFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_complaintFragment"
-            app:destination="@id/complaintFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_emergencyComplaintFragment"
-            app:destination="@id/emergencyComplaintFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_createComplaintFragment"
+            app:destination="@id/createComplaintFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_createEmergencyComplaintFragment"
+            app:destination="@id/createEmergencyComplaintFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allComplaintFragment"
+            app:destination="@id/allComplaintFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allEmergencyComplaintFragment"
+            app:destination="@id/allEmergencyComplaintFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allFeedbackFragment"
+            app:destination="@id/allFeedbackFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.crimealert.view.civillian.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_complaintFragment2"
+            app:destination="@id/complaintFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createComplaintFragment"
+        android:name="com.example.crimealert.view.civillian.CreateComplaintFragment"
+        android:label="fragment_create_complaint"
+        tools:layout="@layout/fragment_create_complaint" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.crimealert.view.civillian.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/createEmergencyComplaintFragment"
+        android:name="com.example.crimealert.view.civillian.CreateEmergencyComplaintFragment"
+        android:label="fragment_create_emergency_complaint"
+        tools:layout="@layout/fragment_create_emergency_complaint" />
+    <fragment
+        android:id="@+id/allComplaintFragment"
+        android:name="com.example.crimealert.view.admin.AllComplaintFragment"
+        android:label="fragment_all_complaint"
+        tools:layout="@layout/fragment_all_complaint" >
+        <action
+            android:id="@+id/action_allComplaintFragment_to_adminManageComplaint"
+            app:destination="@id/adminManageComplaint" />
+    </fragment>
+    <fragment
+        android:id="@+id/allEmergencyComplaintFragment"
+        android:name="com.example.crimealert.view.admin.AllEmergencyComplaintFragment"
+        android:label="fragment_all_emergency_complaint"
+        tools:layout="@layout/fragment_all_emergency_complaint" >
+        <action
+            android:id="@+id/action_allEmergencyComplaintFragment_to_adminManageEmergencyComplaintFragment"
+            app:destination="@id/adminManageEmergencyComplaintFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allFeedbackFragment"
+        android:name="com.example.crimealert.view.admin.AllFeedbackFragment"
+        android:label="fragment_all_feedback"
+        tools:layout="@layout/fragment_all_feedback" >
+        <action
+            android:id="@+id/action_allFeedbackFragment_to_feedbackFragment"
+            app:destination="@id/feedbackFragment" />
+        <action
+            android:id="@+id/action_allFeedbackFragment_to_adminManageFeedbackFragment"
+            app:destination="@id/adminManageFeedbackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminManageComplaint"
+        android:name="com.example.crimealert.view.admin.AdminManageComplaintFragment"
+        android:label="fragment_admin_manage_complaint"
+        tools:layout="@layout/fragment_admin_manage_complaint" />
+    <fragment
+        android:id="@+id/adminManageFeedbackFragment"
+        android:name="com.example.crimealert.view.admin.AdminManageFeedbackFragment"
+        android:label="fragment_admin_manage_feedback"
+        tools:layout="@layout/fragment_admin_manage_feedback" />
+    <fragment
+        android:id="@+id/adminManageEmergencyComplaintFragment"
+        android:name="com.example.crimealert.AdminManageEmergencyComplaintFragment"
+        android:label="fragment_admin_manage_emergency_complaint"
+        tools:layout="@layout/fragment_admin_manage_emergency_complaint" />
 </navigation>

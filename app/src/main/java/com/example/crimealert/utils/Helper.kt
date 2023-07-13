@@ -33,4 +33,29 @@ object Helper {
         return result
     }
 
+    fun validateComplaintCredentials(title : String,phone : String,des : String) : Pair<Boolean,String>{
+        var result = Pair(true,"")
+        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(des))
+        {
+            result = Pair(false,"Please provide the credentials")
+        }
+        return result
+    }
+    fun validateEmergencyComplaintCredentials(title : String,des : String) : Pair<Boolean,String>{
+        var result = Pair(true,"")
+        if(TextUtils.isEmpty(title)|| TextUtils.isEmpty(des))
+        {
+            result = Pair(false,"Please provide the credentials")
+        }
+        return result
+    }
+    fun validatefeedbackCredentials(des : String) : Pair<Boolean,String>{
+        var result = Pair(true,"")
+        if(TextUtils.isEmpty(des))
+        {
+            result = Pair(false,"Please provide Feedback")
+        }
+        return result
+    }
+
 }

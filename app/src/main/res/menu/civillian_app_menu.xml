@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Home"/>
+        <item
+            android:id="@+id/createEmergencyComplaintFragment"
+            android:icon="@drawable/baseline_contact_emergency_24"
+            android:title="Emergency Complaint"/>
+        <item
+            android:id="@+id/createComplaintFragment"
+            android:icon="@drawable/baseline_contact_emergency_24"
+            android:title="Complaint"/>
+        <item
+            android:id="@+id/aboutFragment"
+            android:icon="@drawable/baseline_menu_book_24"
+            android:title="About Us"/>
+        <item
+            android:id="@+id/feedbackFragment"
+            android:icon="@drawable/baseline_contact_phone_24"
+            android:title="Feedback &amp; Suggestions"/>
+    </group>
+
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/profileFragment"
+                android:icon="@drawable/baseline_person_24"
+                android:title="My Profile"/>
+            <item
+                android:onClick="logout"
+                android:icon="@drawable/baseline_logout_24"
+                android:title="Logout"/>
+        </menu>
+    </item>
+
+</menu>

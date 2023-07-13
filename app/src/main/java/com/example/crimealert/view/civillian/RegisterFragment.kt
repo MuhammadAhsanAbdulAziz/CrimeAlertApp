@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.crimealert.databinding.FragmentRegisterBinding
 import com.example.crimealert.models.UserRequest
@@ -51,12 +50,12 @@ class RegisterFragment : Fragment() {
     }
 
     private fun getUserRequest(): UserRequest {
-        val Fname = binding.txtFname.text.toString()
-        val Lname = binding.txtLname.text.toString()
-        val CNIC = binding.txtCnic.text.toString()
-        val Email = binding.txtEmail.text.toString()
-        val Password = binding.txtPassword.text.toString()
-        return UserRequest(Fname,Lname,"",CNIC,Email,Password,3)
+        val fname = binding.txtFname.text.toString()
+        val lname = binding.txtLname.text.toString()
+        val cNIC = binding.txtCnic.text.toString()
+        val email = binding.txtEmail.text.toString()
+        val password = binding.txtPassword.text.toString()
+        return UserRequest(fname,lname,"",cNIC,email,password,3)
     }
 
     private fun validateUserInfo(): Pair<Boolean, String> {
@@ -65,7 +64,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun bindObersers() {
-        authViewModel.userResponseLiveData.observe(viewLifecycleOwner, Observer {
+        authViewModel.userResponseLiveData.observe(viewLifecycleOwner){
             binding.progressBar.isVisible = false
             when (it) {
                 is NetworkResult.Success -> {
@@ -80,7 +79,7 @@ class RegisterFragment : Fragment() {
                     binding.progressBar.isVisible = true
                 }
             }
-        })
+        }
     }
 
     override fun onDestroyView() {

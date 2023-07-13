@@ -24,5 +24,5 @@ interface FeedbackApi {
     suspend fun updateFeedback(@Path("feedbackId") feedbackId:String, @Body feedbackRequest: FeedbackRequest) : Response<FeedbackResponse>
 
     @DELETE("/feedbacks/{feedbackId}")
-    suspend fun deleteFeedback(@Path("feedbackId") feedbackId:String) : Response<FeedbackResponse>
+    suspend fun deleteFeedback(@Path("feedbackId") feedbackId:String)
 }

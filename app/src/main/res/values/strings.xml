@@ -3,4 +3,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_no_account_signup">Don\'t have an account? <font color="#2196F3">Register Now</font></string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="rules_for_emergency">If you have a complaint which lies under the stated rules :</string>
+    <string name="rules_emergency_complaint">1. Ongoing Robbery\n2. Shootout\n3. Abduction or Kidnapping</string>
+    <string name="des">TODO</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="please_send_us_details_about_the_incident_you_would_like_to_report_our_complaint_center_will_analyze_your_complaint_and_take_the_appropriate_measures_in_order_that_the_reported_situation_will_not_occur_at_any_other_time_in_the_future">Please send us details about the incident you would like to report. Our Complaint Center will analyze your complaint and take the appropriate measures in order that the reported situation will not occur at any other time in the future.</string>
+    <string name="welcome_to_karachi_police">Welcome to Karachi Police</string>
+    <string name="where_your_safety_comes_first">Where YOUR safety comes FIRST</string>
+    <string name="contact_us">Contact us</string>
+    <string name="emergency_complaint">Emergency Complaint</string>
 </resources>

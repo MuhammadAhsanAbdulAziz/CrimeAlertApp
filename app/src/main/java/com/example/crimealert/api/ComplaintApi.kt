@@ -14,15 +14,21 @@ interface ComplaintApi {
     @GET("/complaints")
     suspend fun getComplaint() : Response<List<ComplaintResponse>>
 
+    @GET("/complaints/pending")
+    suspend fun getPendingComplaint() : Response<List<ComplaintResponse>>
+
+    @GET("/complaints/completed")
+    suspend fun getCompletedComplaint() : Response<List<ComplaintResponse>>
+
     @GET("/complaints/all")
     suspend fun getallComplaint() : Response<List<ComplaintResponse>>
 
     @POST("/complaints")
     suspend fun addComplaint(@Body complaintRequest: ComplaintRequest) : Response<ComplaintResponse>
 
-    @PUT("/complaints/{complaintId}")
+    @PUT("/complaints/{ComplaintId}")
     suspend fun updateComplaint(@Path("ComplaintId") ComplaintId:String, @Body complaintRequest: ComplaintRequest) : Response<ComplaintResponse>
 
-    @DELETE("/complaints/{complaint}")
-    suspend fun deleteComplaint(@Path("ComplaintId") ComplaintId:String) : Response<ComplaintResponse>
+    @DELETE("/complaints/{ComplaintId}")
+    suspend fun deleteComplaint(@Path("ComplaintId") ComplaintId:String)
 }
