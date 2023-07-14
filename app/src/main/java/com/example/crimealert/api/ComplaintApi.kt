@@ -11,8 +11,6 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ComplaintApi {
-    @GET("/complaints")
-    suspend fun getComplaint() : Response<List<ComplaintResponse>>
 
     @GET("/complaints/pending")
     suspend fun getPendingComplaint() : Response<List<ComplaintResponse>>

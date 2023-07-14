@@ -2,10 +2,7 @@ package com.example.crimealert.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.crimealert.api.ComplaintApi
 import com.example.crimealert.api.EmergencyComplaintApi
-import com.example.crimealert.models.ComplaintRequest
-import com.example.crimealert.models.ComplaintResponse
 import com.example.crimealert.models.EmergencyComplaintRequest
 import com.example.crimealert.models.EmergencyComplaintResponse
 import com.example.crimealert.utils.NetworkResult
@@ -31,19 +28,15 @@ class EmergencyComplaintRepository @Inject constructor(private val emergencyComp
 
     suspend fun deleteComplaint(complaintId: String){
         _statusLiveData.postValue(NetworkResult.Loading())
-        val response = emergencyComplaintApi.deleteEmergencyComplaint(complaintId)
+        emergencyComplaintApi.deleteEmergencyComplaint(complaintId)
         _statusLiveData.postValue(NetworkResult.Success("Complaint Deleted"))
     }
 
     suspend fun updateComplaint(ComplaintId : String, emergencyComplaintRequest: EmergencyComplaintRequest){
         _statusLiveData.postValue(NetworkResult.Loading())
         val response = emergencyComplaintApi.updateEmergencyComplaint(ComplaintId,emergencyComplaintRequest)
-        handleResponse(response,"Complaint Updated")
-    }
-
-    private fun handleResponse(response: Response<EmergencyComplaintResponse>,message : String) {
         if (response.isSuccessful && response.body() != null) {
-            _statusLiveData.postValue(NetworkResult.Success(message))
+            _statusLiveData.postValue(NetworkResult.Success("Complaint Updated"))
         } else {
             _statusLiveData.postValue(NetworkResult.Success("Something went wrong"))
         }

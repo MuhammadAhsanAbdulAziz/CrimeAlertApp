@@ -20,12 +20,6 @@ class FeedbackRepository @Inject constructor(private val feedbackApi: FeedbackAp
     val statusLiveData: LiveData<NetworkResult<String>>
         get() = _statusLiveData
 
-    suspend fun getFeedback() {
-        _feedbackResponseLiveData.postValue(NetworkResult.Loading())
-        val response = feedbackApi.getFeedback()
-        handleResponse(response)
-    }
-
     suspend fun getallFeedback() {
         _feedbackResponseLiveData.postValue(NetworkResult.Loading())
         val response = feedbackApi.getallFeedback()
@@ -41,7 +35,7 @@ class FeedbackRepository @Inject constructor(private val feedbackApi: FeedbackAp
 
     suspend fun deletefeedback(feedbackId: String){
         _statusLiveData.postValue(NetworkResult.Loading())
-        val response = feedbackApi.deleteFeedback(feedbackId)
+        feedbackApi.deleteFeedback(feedbackId)
         _statusLiveData.postValue(NetworkResult.Success("feedback Deleted"))
     }
 

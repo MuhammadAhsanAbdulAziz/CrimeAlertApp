@@ -20,12 +20,6 @@ class ComplaintRepository @Inject constructor(private val complaintApi: Complain
     val statusLiveData: LiveData<NetworkResult<String>>
         get() = _statusLiveData
 
-    suspend fun getComplaint() {
-        _complaintResponseLiveData.postValue(NetworkResult.Loading())
-        val response = complaintApi.getComplaint()
-        handleResponse(response)
-    }
-
     suspend fun getPendingComplaint() {
         _complaintResponseLiveData.postValue(NetworkResult.Loading())
         val response = complaintApi.getPendingComplaint()
@@ -53,7 +47,7 @@ class ComplaintRepository @Inject constructor(private val complaintApi: Complain
 
     suspend fun deleteComplaint(complaintId: String){
         _statusLiveData.postValue(NetworkResult.Loading())
-        val response = complaintApi.deleteComplaint(complaintId)
+        complaintApi.deleteComplaint(complaintId)
         _statusLiveData.postValue(NetworkResult.Success("Complaint Deleted"))
     }
 

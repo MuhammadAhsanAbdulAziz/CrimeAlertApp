@@ -11,6 +11,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.crimealert.databinding.FragmentFeedbackBinding
 import com.example.crimealert.models.FeedbackRequest
 import com.example.crimealert.utils.Helper
+import com.example.crimealert.utils.Helper.errorMessage
 import com.example.crimealert.utils.NetworkResult
 import com.example.crimealert.utils.UtilManager
 import com.example.crimealert.viewmodel.AnonymousViewModel
@@ -51,7 +52,7 @@ class FeedbackFragment : Fragment() {
                 }
             }
             else{
-                errorMessage(validationResult.second)
+                errorMessage(validationResult.second,requireContext())
             }
 
         }
@@ -73,7 +74,7 @@ class FeedbackFragment : Fragment() {
         anonymousViewModel.statusLiveData.observe(viewLifecycleOwner){
             when (it) {
                 is NetworkResult.Success -> {
-                    SuccessMessage()
+                    successMessage()
                 }
 
                 is NetworkResult.Error -> {
@@ -86,7 +87,7 @@ class FeedbackFragment : Fragment() {
         feedbackViewModel.statusLiveData.observe(viewLifecycleOwner){
             when (it) {
                 is NetworkResult.Success -> {
-                    SuccessMessage()
+                    successMessage()
                 }
 
                 is NetworkResult.Error -> {
@@ -98,7 +99,7 @@ class FeedbackFragment : Fragment() {
         }
     }
 
-    fun SuccessMessage() {
+    private fun successMessage() {
         val alertDialog = SweetAlertDialog(
             requireContext(),
             SweetAlertDialog.SUCCESS_TYPE
@@ -116,8 +117,4 @@ class FeedbackFragment : Fragment() {
         _binding = null
     }
 
-    fun errorMessage(msg: String?) {
-        SweetAlertDialog(requireContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...")
-            .setContentText(msg).show()
-    }
 }

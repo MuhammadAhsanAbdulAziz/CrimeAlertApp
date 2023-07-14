@@ -11,8 +11,6 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface FeedbackApi {
-    @GET("/feedbacks")
-    suspend fun getFeedback() : Response<List<FeedbackResponse>>
 
     @GET("/feedbacks/all")
     suspend fun getallFeedback() : Response<List<FeedbackResponse>>

@@ -1,4 +1,4 @@
-package com.example.crimealert
+package com.example.crimealert.view.admin
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,19 +8,15 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.example.crimealert.databinding.FragmentAdminManageComplaintBinding
 import com.example.crimealert.databinding.FragmentAdminManageEmergencyComplaintBinding
-import com.example.crimealert.models.ComplaintRequest
-import com.example.crimealert.models.ComplaintResponse
 import com.example.crimealert.models.EmergencyComplaintRequest
 import com.example.crimealert.models.EmergencyComplaintResponse
 import com.example.crimealert.utils.Helper
+import com.example.crimealert.utils.Helper.errorMessage
 import com.example.crimealert.utils.NetworkResult
 import com.example.crimealert.viewmodel.AnonymousViewModel
-import com.example.crimealert.viewmodel.ComplaintViewModel
 import com.example.crimealert.viewmodel.EmergencyComplaintViewModel
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +45,7 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
         setInitialData()
 
         binding.btnDelete.setOnClickListener{
-            WarningMessage()
+            warningMessage()
 
         }
         binding.btnSubmit.setOnClickListener {
@@ -65,7 +61,7 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
 
             }
             else{
-                errorMessage(validationResult.second)
+                errorMessage(validationResult.second,requireContext())
             }
 
         }
@@ -73,6 +69,7 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
         bindObersers()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setInitialData() {
         val jsonNote = arguments?.getString("complaint")
         if(jsonNote != null){
@@ -103,7 +100,7 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
     private fun getComplaint(): EmergencyComplaintRequest {
         val title = binding.txtTitle.text.toString()
         val des = binding.txtDescription.text.toString()
-        var status:Int = 0
+        var status = 0
         if(binding.unsolvedBtn.isChecked)
         {
             status = 1
@@ -115,7 +112,7 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
         anonymousViewModel.statusLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is NetworkResult.Success -> {
-                    SuccessMessage()
+                    successMessage()
                 }
 
                 is NetworkResult.Error -> {
@@ -125,10 +122,10 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
                 }
             }
         }
-        emergencycomplaintViewModel.statusLiveData.observe(viewLifecycleOwner, Observer {
+        emergencycomplaintViewModel.statusLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is NetworkResult.Success -> {
-                    SuccessMessage()
+                    successMessage()
                 }
 
                 is NetworkResult.Error -> {
@@ -137,10 +134,10 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
                 is NetworkResult.Loading -> {
                 }
             }
-        })
+        }
     }
 
-    fun SuccessMessage() {
+    private fun successMessage() {
         val alertDialog = SweetAlertDialog(
             requireContext(),
             SweetAlertDialog.SUCCESS_TYPE
@@ -152,7 +149,7 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
             }
         alertDialog.show()
     }
-    fun WarningMessage() {
+    private fun warningMessage() {
         val alertDialog = SweetAlertDialog(
             requireContext(),
             SweetAlertDialog.WARNING_TYPE
@@ -170,9 +167,4 @@ class AdminManageEmergencyComplaintFragment : Fragment() {
         _binding = null
     }
 
-
-    fun errorMessage(msg: String?) {
-        SweetAlertDialog(requireContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...")
-            .setContentText(msg).show()
-    }
 }

@@ -11,14 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.crimealert.R
-import com.example.crimealert.adapter.AdminComplaintAdapter
 import com.example.crimealert.adapter.AdminEmergencyComplaintAdapter
-import com.example.crimealert.databinding.FragmentAllComplaintBinding
 import com.example.crimealert.databinding.FragmentAllEmergencyComplaintBinding
-import com.example.crimealert.models.ComplaintResponse
 import com.example.crimealert.models.EmergencyComplaintResponse
 import com.example.crimealert.utils.NetworkResult
-import com.example.crimealert.viewmodel.ComplaintViewModel
 import com.example.crimealert.viewmodel.EmergencyComplaintViewModel
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +45,7 @@ class AllEmergencyComplaintFragment : Fragment() {
         emergencyComplaintViewModel.getallcomplaints()
 
         binding.addNote.setOnClickListener {
-            findNavController().navigate(R.id.action_allComplaintFragment_to_adminManageComplaint)
+            findNavController().navigate(R.id.action_allEmergencyComplaintFragment_to_adminManageEmergencyComplaintFragment)
         }
 
         binding.noteList.layoutManager =LinearLayoutManager(requireContext())

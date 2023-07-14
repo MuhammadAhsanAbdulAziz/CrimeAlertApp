@@ -1,7 +1,12 @@
 package com.example.crimealert.utils
 
+import android.content.Context
 import android.text.TextUtils
 import android.util.Patterns
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import cn.pedant.SweetAlert.SweetAlertDialog
 
 object Helper {
     fun validateCredentials(username : String,email : String, password : String, isLogin : Boolean) : Pair<Boolean,String>{
@@ -56,6 +61,11 @@ object Helper {
             result = Pair(false,"Please provide Feedback")
         }
         return result
+    }
+
+    fun errorMessage(msg: String?,context: Context) {
+        SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...")
+            .setContentText(msg).show()
     }
 
 }

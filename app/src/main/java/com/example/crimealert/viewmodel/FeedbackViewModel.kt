@@ -15,12 +15,6 @@ class FeedbackViewModel @Inject constructor(private val feedbackRepository: Feed
     val feedbackResponseLiveData get() = feedbackRepository.feedbackResponseLiveData
     val statusLiveData get() = feedbackRepository.statusLiveData
 
-    fun getfeedbacks() {
-        viewModelScope.launch {
-            feedbackRepository.getFeedback()
-        }
-    }
-
     fun getallfeedbacks() {
         viewModelScope.launch {
             feedbackRepository.getallFeedback()

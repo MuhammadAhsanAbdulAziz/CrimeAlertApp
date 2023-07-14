@@ -14,10 +14,7 @@
             android:id="@+id/createEmergencyComplaintFragment"
             android:icon="@drawable/baseline_contact_emergency_24"
             android:title="Emergency Complaint"/>
-        <item
-            android:id="@+id/aboutFragment"
-            android:icon="@drawable/baseline_menu_book_24"
-            android:title="About Us"/>
+
         <item
             android:id="@+id/feedbackFragment"
             android:icon="@drawable/baseline_contact_phone_24"

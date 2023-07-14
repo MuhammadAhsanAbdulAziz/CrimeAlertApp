@@ -97,11 +97,11 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/mycolor3"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:layout_weight="1"
                 android:textStyle="bold"
-                android:text="Completed Complaints"
+                android:text="Pending Complaints"
                 android:src="@drawable/complaint"
                 android:scaleType="centerInside"/>
 
@@ -109,8 +109,8 @@
                 android:layout_width="0dp"
                 android:textAlignment="center"
                 android:layout_height="wrap_content"
-                android:textColor="@color/mycolor2"
-                android:text="Pending Complaints"
+                android:textColor="@color/white"
+                android:text="Completed Complaints"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:src="@drawable/complaint"

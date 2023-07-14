@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.crimealert.databinding.FragmentAdminManageFeedbackBinding
 import com.example.crimealert.models.FeedbackRequest
 import com.example.crimealert.models.FeedbackResponse
 import com.example.crimealert.utils.Helper
+import com.example.crimealert.utils.Helper.errorMessage
 import com.example.crimealert.utils.NetworkResult
 import com.example.crimealert.utils.UtilManager
 import com.example.crimealert.viewmodel.FeedbackViewModel
@@ -46,7 +46,7 @@ class AdminManageFeedbackFragment : Fragment() {
         setInitialData()
 
         binding.btnDelete.setOnClickListener{
-            WarningMessage()
+            warningMessage()
 
         }
         binding.btnSubmit.setOnClickListener {
@@ -62,7 +62,7 @@ class AdminManageFeedbackFragment : Fragment() {
 
             }
             else{
-                errorMessage(validationResult.second)
+                errorMessage(validationResult.second,requireContext())
             }
 
         }
@@ -70,6 +70,7 @@ class AdminManageFeedbackFragment : Fragment() {
         bindObersers()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setInitialData() {
         val jsonNote = arguments?.getString("feedback")
         if(jsonNote != null){
@@ -97,10 +98,10 @@ class AdminManageFeedbackFragment : Fragment() {
         return FeedbackRequest(des,rating.toInt())
     }
     private fun bindObersers() {
-        feedbackViewModel.statusLiveData.observe(viewLifecycleOwner, Observer {
+        feedbackViewModel.statusLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is NetworkResult.Success -> {
-                    SuccessMessage()
+                    successMessage()
                 }
 
                 is NetworkResult.Error -> {
@@ -109,10 +110,10 @@ class AdminManageFeedbackFragment : Fragment() {
                 is NetworkResult.Loading -> {
                 }
             }
-        })
+        }
     }
 
-    fun SuccessMessage() {
+    private fun successMessage() {
         val alertDialog = SweetAlertDialog(
             requireContext(),
             SweetAlertDialog.SUCCESS_TYPE
@@ -124,7 +125,7 @@ class AdminManageFeedbackFragment : Fragment() {
             }
         alertDialog.show()
     }
-    fun WarningMessage() {
+    private fun warningMessage() {
         val alertDialog = SweetAlertDialog(
             requireContext(),
             SweetAlertDialog.WARNING_TYPE
@@ -140,11 +141,5 @@ class AdminManageFeedbackFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-
-    fun errorMessage(msg: String?) {
-        SweetAlertDialog(requireContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...")
-            .setContentText(msg).show()
     }
 }

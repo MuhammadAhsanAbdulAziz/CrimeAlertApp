@@ -7,9 +7,7 @@ import android.view.animation.Animation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.crimealert.databinding.ComplaintItemBinding
 import com.example.crimealert.databinding.EmergencyComplaintItemBinding
-import com.example.crimealert.models.ComplaintResponse
 import com.example.crimealert.models.EmergencyComplaintResponse
 
 

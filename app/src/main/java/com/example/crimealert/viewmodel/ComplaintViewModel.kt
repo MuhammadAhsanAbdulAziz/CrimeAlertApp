@@ -15,12 +15,6 @@ class ComplaintViewModel @Inject constructor(private val complaintRepository: Co
     val complaintResponseLiveData get() = complaintRepository.complaintResponseLiveData
     val statusLiveData get() = complaintRepository.statusLiveData
 
-    fun getcomplaints() {
-        viewModelScope.launch {
-            complaintRepository.getComplaint()
-        }
-    }
-
     fun getPendingcomplaints() {
         viewModelScope.launch {
             complaintRepository.getPendingComplaint()

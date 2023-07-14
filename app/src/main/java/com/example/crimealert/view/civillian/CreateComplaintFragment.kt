@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.crimealert.databinding.FragmentCreateComplaintBinding
 import com.example.crimealert.models.ComplaintRequest
 import com.example.crimealert.models.UserResponse
 import com.example.crimealert.utils.Helper
+import com.example.crimealert.utils.Helper.errorMessage
 import com.example.crimealert.utils.NetworkResult
 import com.example.crimealert.utils.UtilManager
 import com.example.crimealert.viewmodel.ComplaintViewModel
@@ -57,7 +57,7 @@ class CreateComplaintFragment : Fragment() {
                 complaintViewModel.createcomplaint(getComplaint())
             }
             else{
-                errorMessage(validationResult.second)
+                errorMessage(validationResult.second,requireContext())
             }
 
         }
@@ -77,10 +77,10 @@ class CreateComplaintFragment : Fragment() {
         return ComplaintRequest(des,title,phone,1)
     }
     private fun bindObersers() {
-        complaintViewModel.statusLiveData.observe(viewLifecycleOwner, Observer {
+        complaintViewModel.statusLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is NetworkResult.Success -> {
-                    SuccessMessage()
+                    successMessage()
                 }
 
                 is NetworkResult.Error -> {
@@ -89,10 +89,10 @@ class CreateComplaintFragment : Fragment() {
                 is NetworkResult.Loading -> {
                 }
             }
-        })
+        }
     }
 
-    fun SuccessMessage() {
+    private fun successMessage() {
         val alertDialog = SweetAlertDialog(
             requireContext(),
             SweetAlertDialog.SUCCESS_TYPE
@@ -107,10 +107,5 @@ class CreateComplaintFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    fun errorMessage(msg: String?) {
-        SweetAlertDialog(requireContext(), SweetAlertDialog.ERROR_TYPE).setTitleText("Oops...")
-            .setContentText(msg).show()
     }
 }

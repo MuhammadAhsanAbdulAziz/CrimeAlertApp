@@ -46,8 +46,8 @@ class AdminFeedbackAdapter(private val onFeedbackClicked: (FeedbackResponse) -> 
         RecyclerView.ViewHolder(binding.root) {
         fun bind(feedback: FeedbackResponse) {
             binding.detail = feedback
-            binding.rating.setText(""+feedback.FeedbackRating)
-            binding.desc.setText(feedback.FeedbackDescription)
+            binding.rating.text = feedback.FeedbackRating.toString()
+            binding.desc.text = feedback.FeedbackDescription
             binding.root.setOnClickListener {
                 onFeedbackClicked(feedback)
             }

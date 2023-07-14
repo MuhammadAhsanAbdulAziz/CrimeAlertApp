@@ -3,9 +3,7 @@ package com.example.crimealert.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.crimealert.models.ComplaintRequest
 import com.example.crimealert.models.EmergencyComplaintRequest
-import com.example.crimealert.repository.ComplaintRepository
 import com.example.crimealert.repository.EmergencyComplaintRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

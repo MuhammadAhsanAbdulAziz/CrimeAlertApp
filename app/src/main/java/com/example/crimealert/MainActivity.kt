@@ -1,5 +1,6 @@
 package com.example.crimealert
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -8,7 +9,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.crimealert.databinding.ActivityMainBinding
-import com.example.crimealert.models.User
 import com.example.crimealert.models.UserResponse
 import com.example.crimealert.utils.UtilManager
 import com.google.gson.Gson
@@ -18,36 +18,21 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
-    lateinit var navController: NavController
-    lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private lateinit var toggle: ActionBarDrawerToggle
     @Inject
-    lateinit var utilManager: UtilManager
+    private lateinit var utilManager: UtilManager
     private var user: UserResponse? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHost =
-            supportFragmentManager.findFragmentById(R.id.navhostfragment) as NavHostFragment?
+        decideMenu()
+        val navHost = supportFragmentManager.findFragmentById(R.id.navhostfragment) as NavHostFragment?
         if (navHost != null) {
             navController = navHost.navController
-        }
-        if (utilManager.getToken() != null) {
-            val jsonUser = utilManager.getUser()
-            if (jsonUser != null) {
-                user = Gson().fromJson(jsonUser, UserResponse::class.java)
-            }
-            if(user!!.user.RoleId == 1){
-                binding.navView.inflateMenu(R.menu.admin_app_menu)
-            }
-            else {
-                binding.navView.inflateMenu(R.menu.civillian_app_menu)
-            }
-        }
-        else{
-            binding.navView.inflateMenu(R.menu.my_app_menu)
         }
         setupWithNavController(binding.navView, navController)
         toggle = ActionBarDrawerToggle(
@@ -62,9 +47,32 @@ class MainActivity : AppCompatActivity() {
     }
     fun logout(item: MenuItem) {
         utilManager.saveToken(null)
-        finish();
-        overridePendingTransition(0, 0);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
+        val i = Intent(baseContext, SplashScreen::class.java)
+        overridePendingTransition(0, 0)
+        startActivity(i)
+        overridePendingTransition(0, 0)
+        finish()
+    }
+    private fun decideMenu(){
+        if (utilManager.getToken() != null) {
+            val jsonUser = utilManager.getUser()
+            if (jsonUser != null) {
+                user = Gson().fromJson(jsonUser, UserResponse::class.java)
+            }
+            when (user!!.user.RoleId) {
+                1 -> {
+                    binding.navView.inflateMenu(R.menu.admin_app_menu)
+                }
+                2 -> {
+                    binding.navView.inflateMenu(R.menu.police_app_menu)
+                }
+                else -> {
+                    binding.navView.inflateMenu(R.menu.civillian_app_menu)
+                }
+            }
+        }
+        else{
+            binding.navView.inflateMenu(R.menu.my_app_menu)
+        }
     }
 }
