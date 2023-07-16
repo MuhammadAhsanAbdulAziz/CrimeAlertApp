@@ -33,4 +33,9 @@ class EmergencyComplaintViewModel @Inject constructor(private val emergencycompl
             emergencycomplaintRepository.updateComplaint(complaintId,emergencyComplaintRequest)
         }
     }
+    fun updatestatuscomplaint(complaintId : String, emergencyComplaintRequest: EmergencyComplaintRequest){
+        viewModelScope.launch {
+            emergencycomplaintRepository.updateStatusComplaint(complaintId,emergencyComplaintRequest)
+        }
+    }
 }

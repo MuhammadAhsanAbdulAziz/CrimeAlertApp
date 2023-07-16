@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimg">
+    android:background="@drawable/backgroundimg"
+    tools:context=".view.admin.AdminManageComplaintFragment">
 
 
     <LinearLayout
@@ -172,13 +173,15 @@
 
         <Button
             android:id="@+id/btnSubmit"
+            style="@style/Widget.Material3.Button"
+            android:backgroundTint="@color/mycolor2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:textSize="30sp" />
+            android:layout_marginTop="30dp"
+            android:text="Update"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </ScrollView>

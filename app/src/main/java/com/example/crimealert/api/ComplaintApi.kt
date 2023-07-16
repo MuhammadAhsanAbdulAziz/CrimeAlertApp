@@ -27,6 +27,9 @@ interface ComplaintApi {
     @PUT("/complaints/{ComplaintId}")
     suspend fun updateComplaint(@Path("ComplaintId") ComplaintId:String, @Body complaintRequest: ComplaintRequest) : Response<ComplaintResponse>
 
+    @PUT("/complaints/status/{ComplaintId}")
+    suspend fun updateStatusComplaint(@Path("ComplaintId") ComplaintId:String, @Body complaintRequest: ComplaintRequest) : Response<ComplaintResponse>
+
     @DELETE("/complaints/{ComplaintId}")
     suspend fun deleteComplaint(@Path("ComplaintId") ComplaintId:String)
 }

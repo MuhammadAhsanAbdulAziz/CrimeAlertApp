@@ -57,6 +57,12 @@ class ComplaintRepository @Inject constructor(private val complaintApi: Complain
         handleResponse(response,"Complaint Updated")
     }
 
+    suspend fun updateStatusComplaint(ComplaintId : String, complaintRequest: ComplaintRequest){
+        _statusLiveData.postValue(NetworkResult.Loading())
+        val response = complaintApi.updateStatusComplaint(ComplaintId,complaintRequest)
+        handleResponse(response,"Complaint Updated")
+    }
+
     private fun handleResponse(response: Response<ComplaintResponse>,message : String) {
         if (response.isSuccessful && response.body() != null) {
             _statusLiveData.postValue(NetworkResult.Success(message))

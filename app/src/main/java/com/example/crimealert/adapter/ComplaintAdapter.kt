@@ -13,7 +13,7 @@ import com.example.crimealert.models.ComplaintResponse
 
 class ComplaintAdapter :
     ListAdapter<ComplaintResponse, ComplaintAdapter.ComplaintViewHolder>(ComparatorDiffUtil()) {
-
+    var counter = 1
     class ComparatorDiffUtil : DiffUtil.ItemCallback<ComplaintResponse>() {
         override fun areItemsTheSame(
             oldItem: ComplaintResponse,
@@ -48,13 +48,17 @@ class ComplaintAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(complaint: ComplaintResponse) {
             binding.detail = complaint
+            binding.counter.text = counter.toString()
+            counter++
             val anim: Animation = AlphaAnimation(0.0f, 1.0f)
             anim.duration = 80 //You can manage the blinking time with this parameter
             anim.startOffset = 20
             anim.repeatMode = Animation.REVERSE
             anim.repeatCount = Animation.INFINITE
 
-            binding.status.startAnimation(anim)
+            if(complaint.CompStatus == 1) {
+                binding.status.startAnimation(anim)
+            }
         }
 
     }

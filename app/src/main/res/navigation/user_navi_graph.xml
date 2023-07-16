@@ -58,6 +58,15 @@
         <action
             android:id="@+id/action_mainFragment_to_allFeedbackFragment"
             app:destination="@id/allFeedbackFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allUserFragment"
+            app:destination="@id/allUserFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allPoliceEmergencyComplaintFragment"
+            app:destination="@id/allPoliceEmergencyComplaintFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allPoliceComplaintFragment"
+            app:destination="@id/allPoliceComplaintFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -135,10 +144,42 @@
         android:id="@+id/allUserFragment"
         android:name="com.example.crimealert.view.admin.AllUserFragment"
         android:label="fragment_all_user"
-        tools:layout="@layout/fragment_all_user" />
+        tools:layout="@layout/fragment_all_user" >
+        <action
+            android:id="@+id/action_allUserFragment_to_adminManageUserFragment"
+            app:destination="@id/adminManageUserFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adminManageUserFragment"
         android:name="com.example.crimealert.view.admin.AdminManageUserFragment"
         android:label="fragment_admin_manage_user"
         tools:layout="@layout/fragment_admin_manage_user" />
+    <fragment
+        android:id="@+id/allPoliceComplaintFragment"
+        android:name="com.example.crimealert.view.policeman.AllPoliceComplaintFragment"
+        android:label="fragment_all_police_complaint"
+        tools:layout="@layout/fragment_all_police_complaint" >
+        <action
+            android:id="@+id/action_allPoliceComplaintFragment_to_policeManageComplaintFragment"
+            app:destination="@id/policeManageComplaintFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allPoliceEmergencyComplaintFragment"
+        android:name="com.example.crimealert.view.policeman.AllPoliceEmergencyComplaintFragment"
+        android:label="fragment_all_police_emergency_complaint"
+        tools:layout="@layout/fragment_all_police_emergency_complaint" >
+        <action
+            android:id="@+id/action_allPoliceEmergencyComplaintFragment_to_policeManageEmergencyComplaintFragment"
+            app:destination="@id/policeManageEmergencyComplaintFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/policeManageComplaintFragment"
+        android:name="com.example.crimealert.view.policeman.PoliceManageComplaintFragment"
+        android:label="fragment_police_manage_complaint"
+        tools:layout="@layout/fragment_police_manage_complaint" />
+    <fragment
+        android:id="@+id/policeManageEmergencyComplaintFragment"
+        android:name="com.example.crimealert.view.policeman.PoliceManageEmergencyComplaintFragment"
+        android:label="fragment_police_manage_emergency_complaint"
+        tools:layout="@layout/fragment_police_manage_emergency_complaint" />
 </navigation>

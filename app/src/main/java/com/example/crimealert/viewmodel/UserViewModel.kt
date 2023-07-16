@@ -13,11 +13,18 @@ import javax.inject.Inject
 class UserViewModel @Inject constructor(private val userRepository: UserRepository) : ViewModel() {
 
     val userResponseLiveData get() = userRepository.userResponseLiveData
+    val alluserResponseLiveData get() = userRepository.alluserResponseLiveData
     val statusLiveData get() = userRepository.statusLiveData
 
     fun getuser() {
         viewModelScope.launch {
             userRepository.getUser()
+        }
+    }
+
+    fun getAlluser() {
+        viewModelScope.launch {
+            userRepository.getAllUser()
         }
     }
 
@@ -30,6 +37,12 @@ class UserViewModel @Inject constructor(private val userRepository: UserReposito
     fun updateuser(userId : String, userRequest: UserRequest){
         viewModelScope.launch {
             userRepository.updateUser(userId,userRequest)
+        }
+    }
+
+    fun updateuserrole(userId : String, userRequest: UserRequest){
+        viewModelScope.launch {
+            userRepository.updateUserRole(userId,userRequest)
         }
     }
 }

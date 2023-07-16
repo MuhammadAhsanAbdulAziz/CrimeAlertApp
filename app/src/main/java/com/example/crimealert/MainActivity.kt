@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var toggle: ActionBarDrawerToggle
     @Inject
-    private lateinit var utilManager: UtilManager
+    lateinit var utilManager: UtilManager
     private var user: UserResponse? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

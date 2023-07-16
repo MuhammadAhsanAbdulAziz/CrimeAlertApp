@@ -12,10 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="16dp">
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/counter"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:hint="N"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="9.5"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -49,5 +66,6 @@
             android:hint="Description"
             android:textColor="@color/white"
             android:textSize="13sp" />
+    </LinearLayout>
     </LinearLayout>
 </layout>

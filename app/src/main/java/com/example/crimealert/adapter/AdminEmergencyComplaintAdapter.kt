@@ -14,6 +14,7 @@ import com.example.crimealert.models.EmergencyComplaintResponse
 class AdminEmergencyComplaintAdapter(private val onComplaintClicked: (EmergencyComplaintResponse) -> Unit) :
     ListAdapter<EmergencyComplaintResponse, AdminEmergencyComplaintAdapter.ComplaintViewHolder>(ComparatorDiffUtil()) {
 
+    var counter = 1
     class ComparatorDiffUtil : DiffUtil.ItemCallback<EmergencyComplaintResponse>() {
         override fun areItemsTheSame(
             oldItem: EmergencyComplaintResponse,
@@ -48,6 +49,8 @@ class AdminEmergencyComplaintAdapter(private val onComplaintClicked: (EmergencyC
         RecyclerView.ViewHolder(binding.root) {
         fun bind(complaint: EmergencyComplaintResponse) {
             binding.detail = complaint
+            binding.counter.text = counter.toString()
+            counter++
             binding.root.setOnClickListener {
                 onComplaintClicked(complaint)
             }
@@ -57,7 +60,9 @@ class AdminEmergencyComplaintAdapter(private val onComplaintClicked: (EmergencyC
             anim.repeatMode = Animation.REVERSE
             anim.repeatCount = Animation.INFINITE
 
-            binding.status.startAnimation(anim)
+            if(complaint.ECompStatus == 1) {
+                binding.status.startAnimation(anim)
+            }
 
         }
 

@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindObersers()
+
         userViewModel.getuser()
         binding.btnedit.setOnClickListener{
             val bundle = Bundle()
@@ -54,7 +54,7 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_complaintFragment2,bundle)
         }
 
-
+        bindObersers()
     }
 
     private fun bindObersers() {
@@ -64,6 +64,15 @@ class ProfileFragment : Fragment() {
                 is NetworkResult.Success -> {
                     user = it.data
                     binding.detail = it.data
+                    if(user!!.RoleId == 3) {
+                        binding.role.hint = "Civillian"
+                    }
+                    else if(user!!.RoleId == 2)
+                    {
+                        binding.role.hint = "Policeman"
+                        binding.hehe1.isVisible = false
+                        binding.hehe2.isVisible = false
+                    }
                 }
 
                 is NetworkResult.Error -> {

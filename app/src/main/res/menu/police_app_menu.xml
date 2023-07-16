@@ -7,15 +7,15 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/homeFragment"
+            android:id="@+id/mainFragment"
             android:icon="@drawable/baseline_home_24"
             android:title="Home"/>
         <item
-            android:id="@+id/allEmergencyComplaintFragment"
+            android:id="@+id/allPoliceEmergencyComplaintFragment"
             android:icon="@drawable/baseline_contact_emergency_24"
             android:title="Emergency Complaint"/>
         <item
-            android:id="@+id/allComplaintFragment"
+            android:id="@+id/allPoliceComplaintFragment"
             android:icon="@drawable/baseline_contact_emergency_24"
             android:title="Complaint"/>
     </group>

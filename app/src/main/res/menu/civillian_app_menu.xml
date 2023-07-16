@@ -8,7 +8,7 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/homeFragment"
+            android:id="@+id/mainFragment"
             android:icon="@drawable/baseline_home_24"
             android:title="Home"/>
         <item

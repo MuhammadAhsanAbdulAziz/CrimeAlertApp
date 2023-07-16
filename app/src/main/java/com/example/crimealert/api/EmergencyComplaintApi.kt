@@ -18,6 +18,9 @@ interface EmergencyComplaintApi {
     @PUT("/emergencycomplaints/{ComplaintId}")
     suspend fun updateEmergencyComplaint(@Path("ComplaintId") ComplaintId:String, @Body emergencyComplaintRequest: EmergencyComplaintRequest) : Response<EmergencyComplaintResponse>
 
+    @PUT("/emergencycomplaints/status/{ComplaintId}")
+    suspend fun updateStatusEmergencyComplaint(@Path("ComplaintId") ComplaintId:String, @Body emergencyComplaintRequest: EmergencyComplaintRequest) : Response<EmergencyComplaintResponse>
+
     @DELETE("/emergencycomplaints/{ComplaintId}")
     suspend fun deleteEmergencyComplaint(@Path("ComplaintId") ComplaintId:String)
 }

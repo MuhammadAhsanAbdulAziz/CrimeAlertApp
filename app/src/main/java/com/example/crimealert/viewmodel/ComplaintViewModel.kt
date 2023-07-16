@@ -51,4 +51,10 @@ class ComplaintViewModel @Inject constructor(private val complaintRepository: Co
             complaintRepository.updateComplaint(complaintId,complaintRequest)
         }
     }
+
+    fun updatestatuscomplaint(complaintId : String, complaintRequest: ComplaintRequest){
+        viewModelScope.launch {
+            complaintRepository.updateStatusComplaint(complaintId,complaintRequest)
+        }
+    }
 }

@@ -92,13 +92,15 @@
 
             <Button
                 android:id="@+id/btnSubmit"
-                android:layout_margin="10dp"
+                style="@style/Widget.Material3.Button"
+                android:backgroundTint="@color/mycolor2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:text="Submit"/>
+                android:layout_marginTop="30dp"
+                android:text="Update"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 

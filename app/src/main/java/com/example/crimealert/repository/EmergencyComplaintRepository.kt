@@ -42,6 +42,16 @@ class EmergencyComplaintRepository @Inject constructor(private val emergencyComp
         }
     }
 
+    suspend fun updateStatusComplaint(ComplaintId : String, emergencyComplaintRequest: EmergencyComplaintRequest){
+        _statusLiveData.postValue(NetworkResult.Loading())
+        val response = emergencyComplaintApi.updateStatusEmergencyComplaint(ComplaintId,emergencyComplaintRequest)
+        if (response.isSuccessful && response.body() != null) {
+            _statusLiveData.postValue(NetworkResult.Success("Complaint Updated"))
+        } else {
+            _statusLiveData.postValue(NetworkResult.Success("Something went wrong"))
+        }
+    }
+
     private fun handleResponse(response: Response<List<EmergencyComplaintResponse>>) {
         if (response.isSuccessful && response.body() != null) {
             _complaintResponseLiveData.postValue(NetworkResult.Success(response.body()))

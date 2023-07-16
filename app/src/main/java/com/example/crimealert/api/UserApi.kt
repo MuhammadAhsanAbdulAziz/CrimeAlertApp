@@ -13,10 +13,16 @@ interface UserApi {
     @GET("/users")
     suspend fun getUser() : Response<User>
 
+    @GET("/users/all")
+    suspend fun getAllUser() : Response<List<User>>
+
     @PUT("/users/{userId}")
     suspend fun updateUser(@Path("userId") userId:String, @Body userRequest: UserRequest) : Response<User>
 
+    @PUT("/users/role/{userId}")
+    suspend fun updateUserRole(@Path("userId") userId:String, @Body userRequest: UserRequest) : Response<User>
+
     @DELETE("/users/{userId}")
-    suspend fun deleteUser(@Path("userId") userId:String) : Response<User>
+    suspend fun deleteUser(@Path("userId") userId:String)
 
 }
